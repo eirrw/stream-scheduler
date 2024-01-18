@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - Stream Scheduler</title>
+      {% else %}
+      <title>Stream Scheduler</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+            <a href="/">Home</a>
+            {% if current_user.is_anonymous %}
+                <a href="{{ url_for('auth.register') }}">register</a>
+                <a href="{{ url_for('auth.login') }}">log in</a>
+            {% else %}
+                <span>{{ current_user.username }}</span>
+                <a href="{{ url_for('auth.logout') }}">Log Out</a>
+            {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
+

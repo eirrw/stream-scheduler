@@ -9,6 +9,11 @@ readme = "README.md"
 python = "^3.12"
 Flask = "^3.0.0"
 google-api-python-client = "^2.108.0"
+python-dotenv = "^1.0.0"
+flask-wtf = "^1.2.1"
+flask-sqlalchemy = "^3.1.1"
+flask-migrate = "^4.0.5"
+flask-login = "^0.6.3"
 
 
 [build-system]
